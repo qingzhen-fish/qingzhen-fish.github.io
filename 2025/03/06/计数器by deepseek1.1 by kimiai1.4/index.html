@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- HTML head, it contains style files and site information. -->
+  <head>
+    <!-- Meta Information. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/images/favicon.ico"> 
+
+<!-- Load Material Design Lite assets. -->
+<link rel="stylesheet" href="/stylesheets/vendors/material.min.css">
+<script src="/javascripts/vendors/material.min.js"></script>
+
+<!-- Load native stylesheets. -->
+<link rel="stylesheet" href="/stylesheets/main.css">
+
+<!-- Load highlighting. -->
+
+<!-- Load Iconify. -->
+<script src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/iconify/2.0.0/iconify.min.js"></script>
+
+<!-- Load font resources. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap">
+
+    <!-- Add page title. -->
+    <title>
+      Hexo
+    </title>
+  <meta name="generator" content="Hexo 7.3.0"></head>
+
+  <!-- Load pjax. -->
+
+  <!-- HTML body. -->
+  <body>
+
+    <!-- No header, and the drawer stays open on larger screens. -->
+    <div id="pjax-container" class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer site-layout">
+
+      <!-- Drawer layout. This part can be seen as "header". -->
+      <div class="mdl-layout__drawer site-drawer">
+        <!-- Site title in drawer. -->
+<span class="mdl-layout-title site-drawer__title">
+  Hexo
+</span>
+
+<!-- Site slogan. -->
+<p class="site-drawer__slogan">
+  Write your own slogan.
+  </br>
+</p>
+
+<!-- Loading elements. -->
+  <p class="site-drawer__loading-tip">
+    LOADING...
+  </p>
+
+<!-- Dividing line in the drawer. -->
+  <hr class="site-drawer__hr">
+</hr>
+
+<!-- Site navigation (menu). -->
+<nav class="mdl-navigation site-drawer__menu">
+    <a class="mdl-navigation__link site-drawer__menu__link" href=/>
+	    <i class="material-icons mdl-list__item-icon">home</i>
+	    Home
+    </a>
+
+  <!-- Archives item. -->
+    <a class="mdl-navigation__link site-drawer__menu__link" href=/archives>
+      <i class="material-icons mdl-list__item-icon">archives</i>
+      Archives
+    </a>
+
+  <!-- About page. -->
+</nav>
+
+<!-- Footer. -->
+<div class="site-drawer__footer">
+  Powered by
+  <a
+    class="site-drawer__footer__link" 
+    target="_blank" rel="noopener" href="https://github.com/breeze256/hexo-theme-plata"
+  >Plata theme</a>.
+</div>
+
+      </div>
+
+      <!-- Main content, extended in specific pages. -->
+      <main id="content-container" class="mdl-layout__content content-container">
+        
+  <!-- Post layout. -->
+	<div class="mdl-card__supporting-text post-content">
+
+    <!-- Icon button -->
+    <button id="post-info-button" class="mdl-button mdl-js-button mdl-button--icon post-content__top-button">
+      <i class="material-icons">info</i>
+    </button>
+    <script src="/javascripts/post-info-button.js"></script>
+
+    <!-- Post title. -->
+		<h1></h1>
+
+    <!-- Author area. TODO -->
+    <pre> Tags:  Categories:  </pre>
+    
+    <!--<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#settingsPanel"><span class="toc-number">1.</span> <span class="toc-text">设置</span></a></li></ol> -->
+
+    <!-- Post content. -->
+		<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能计数器</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #2c3e50;
+            --counter-bg: #f8f9fa;
+            --button-bg: #4CAF50;
+            --button-hover: #45a049;
+            --reset-bg: #e74c3c;
+            --reset-hover: #c0392b;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --counter-bg: #2d2d2d;
+            --button-bg: #2ecc71;
+            --button-hover: #27ae60;
+            --reset-bg: #e74c3c;
+            --reset-hover: #c0392b;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Arial', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            background: var(--counter-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .title-display {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: var(--text-color);
+            display: none;
+        }
+
+        .counter {
+            font-size: 6rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            border-radius: 10px;
+            min-width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .time-display {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            color: var(--text-color);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        button {
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .increment-btn {
+            background-color: var(--button-bg);
+            color: white;
+        }
+
+        .reset-btn {
+            background-color: var(--reset-bg);
+            color: white;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        .increment-btn:hover {
+            background-color: var(--button-hover);
+        }
+
+        .reset-btn:hover {
+            background-color: var(--reset-hover);
+        }
+
+        /* 设置界面样式 */
+        .settings-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--text-color);
+            transition: transform 0.3s;
+        }
+
+        .settings-panel {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background: var(--counter-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            width: 260px;
+        }
+
+        .settings-panel.show {
+            display: block;
+        }
+
+        .setting-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 15px 0;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        .export-btn, .import-btn {
+            background-color: #3498db;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .export-btn:hover, .import-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .records-list {
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .records-list-item {
+            margin: 5px 0;
+        }
+
+        .title-input {
+            width: 100%;
+            margin-top: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title-display" id="titleDisplay"></div>
+        <div class="counter" id="counter">0</div>
+        <div class="time-display" id="timeDisplay"></div>
+        <div class="buttons">
+            <button class="increment-btn" onclick="increment()">点击计数</button>
+            <button class="reset-btn" onclick="resetCounter()">重置</button>
+        </div>
+    </div>
+
+    <!-- 设置界面 -->
+    <div class="settings-icon" onclick="toggleSettings()">⚙️</div>
+    <div class="settings-panel" id="settingsPanel">
+        <h3>设置</h3>
+        <div class="setting-item">
+            <span>深色模式</span>
+            <label class="switch">
+                <input type="checkbox" id="darkModeSwitch">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="setting-item">
+            <span>显示当前时间</span>
+            <label class="switch">
+                <input type="checkbox" id="timeDisplaySwitch">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="setting-item">
+            <span>显示点击记录</span>
+            <label class="switch">
+                <input type="checkbox" id="showRecordsSwitch">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="setting-item">
+            <span>显示标题</span>
+            <label class="switch">
+                <input type="checkbox" id="showTitleSwitch">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="setting-item">
+            <span>自定义标题</span>
+            <input type="text" class="title-input" id="customTitleInput" placeholder="输入标题">
+        </div>
+        <button class="export-btn" onclick="exportData()">导出记录</button>
+        <button class="import-btn" onclick="importData()">导入记录</button>
+        <div class="records-list" id="recordsList"></div>
+    </div>
+
+    <script>
+        let count = 0;
+        let clickRecords = [];
+        let customTitle = '';
+        const counterElement = document.getElementById('counter');
+        const timeDisplayElement = document.getElementById('timeDisplay');
+        const titleDisplayElement = document.getElementById('titleDisplay');
+        const darkModeSwitch = document.getElementById('darkModeSwitch');
+        const timeDisplaySwitch = document.getElementById('timeDisplaySwitch');
+        const showRecordsSwitch = document.getElementById('showRecordsSwitch');
+        const showTitleSwitch = document.getElementById('showTitleSwitch');
+        const customTitleInput = document.getElementById('customTitleInput');
+        const recordsListElement = document.getElementById('recordsList');
+
+        // 初始化设置
+        function initSettings() {
+            // 从本地存储读取设置
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            darkModeSwitch.checked = isDarkMode;
+            document.body.setAttribute('data-theme', isDarkMode ? 'dark' : '');
+
+            // 从本地存储读取时间显示设置
+            const isTimeDisplayed = localStorage.getItem('timeDisplay') === 'true';
+            timeDisplaySwitch.checked = isTimeDisplayed;
+            timeDisplayElement.style.display = isTimeDisplayed ? 'block' : 'none';
+
+            // 从本地存储读取记录显示设置
+            const isRecordsDisplayed = localStorage.getItem('showRecords') === 'true';
+            showRecordsSwitch.checked = isRecordsDisplayed;
+            recordsListElement.style.display = isRecordsDisplayed ? 'block' : 'none';
+
+            // 从本地存储读取标题显示设置
+            const isTitleDisplayed = localStorage.getItem('showTitle') === 'true';
+            showTitleSwitch.checked = isTitleDisplayed;
+            titleDisplayElement.style.display = isTitleDisplayed ? 'block' : 'none';
+
+            // 从本地存储读取自定义标题
+            customTitle = localStorage.getItem('customTitle') || '';
+            customTitleInput.value = customTitle;
+            if (customTitle) {
+                titleDisplayElement.textContent = customTitle;
+            }
+        }
+
+        // 切换设置面板
+        function toggleSettings() {
+            const panel = document.getElementById('settingsPanel');
+            panel.classList.toggle('show');
+        }
+
+        // 增加计数
+        function increment() {
+            count++;
+            // 记录点击时间
+            const now = new Date();
+            clickRecords.push({
+                count: count,
+                timestamp: now.toISOString(),
+                localTime: now.toLocaleString()
+            });
+            updateDisplay();
+            updateRecordsList();
+        }
+
+        // 重置计数器
+        function resetCounter() {
+            if (count > 0 && confirm('确定要重置计数器吗？')) {
+                count = 0;
+                clickRecords = [];
+                updateDisplay();
+                updateRecordsList();
+            }
+        }
+
+        // 更新显示
+        function updateDisplay() {
+            counterElement.textContent = count;
+            counterElement.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                counterElement.style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        // 导出数据
+        function exportData() {
+            if (clickRecords.length === 0) {
+                alert('暂无记录可导出');
+                return;
+            }
+
+            let content = '点击次数记录：\n\n';
+            if (customTitle) {
+                content += `标题：${customTitle}\n\n`;
+            } else {
+                content += '标题：未命名\n\n';
+            }
+
+            clickRecords.forEach((record, index) => {
+                content += `记录 ${index + 1}：\n`;
+                content += `次数：${record.count}\n`;
+                content += `时间：${record.localTime}\n\n`;
+            });
+
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `点击记录_${new Date().toLocaleDateString().replace(/\//g, '-')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // 导入数据
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'text/plain';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const content = event.target.result;
+                    const lines = content.split('\n');
+                    let recordCount = 0;
+                    let recordTime = '';
+                    clickRecords = [];
+                    let importedTitle = '';
+                    for (let i = 0; i < lines.length; i++) {
+                        if (lines[i].includes('次数：')) {
+                            recordCount = parseInt(lines[i].split('：')[1]);
+                        }
+                        if (lines[i].includes('时间：')) {
+                            recordTime = lines[i].split('：')[1];
+                            clickRecords.push({
+                                count: recordCount,
+                                timestamp: new Date(recordTime).toISOString(),
+                                localTime: recordTime
+                            });
+                        }
+                        if (lines[i].includes('标题：')) {
+                            importedTitle = lines[i].split('：')[1].trim();
+                            customTitle = importedTitle;
+                            customTitleInput.value = customTitle;
+                            if (showTitleSwitch.checked) {
+                                titleDisplayElement.textContent = customTitle;
+                            }
+                        }
+                    }
+                    count = clickRecords[clickRecords.length - 1]?.count || 0;
+                    updateDisplay();
+                    updateRecordsList();
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
+        // 深色模式切换
+        darkModeSwitch.addEventListener('change', function() {
+            document.body.setAttribute('data-theme', this.checked ? 'dark' : '');
+            localStorage.setItem('darkMode', this.checked);
+        });
+
+        // 时间显示切换
+        timeDisplaySwitch.addEventListener('change', function() {
+            timeDisplayElement.style.display = this.checked ? 'block' : 'none';
+            localStorage.setItem('timeDisplay', this.checked);
+        });
+
+        // 记录显示切换
+        showRecordsSwitch.addEventListener('change', function() {
+            recordsListElement.style.display = this.checked ? 'block' : 'none';
+            localStorage.setItem('showRecords', this.checked);
+        });
+
+        // 标题显示切换
+        showTitleSwitch.addEventListener('change', function() {
+            titleDisplayElement.style.display = this.checked ? 'block' : 'none';
+            localStorage.setItem('showTitle', this.checked);
+        });
+
+        // 自定义标题输入
+        customTitleInput.addEventListener('input', function() {
+            customTitle = this.value;
+            localStorage.setItem('customTitle', customTitle);
+            if (showTitleSwitch.checked) {
+                titleDisplayElement.textContent = customTitle;
+            }
+        });
+
+        // 更新时间显示
+        function updateTimeDisplay() {
+            if (timeDisplaySwitch.checked) {
+                const now = new Date();
+                timeDisplayElement.textContent = `当前时间：${now.toLocaleString()}`;
+            }
+        }
+
+        // 更新记录显示
+        function updateRecordsList() {
+            recordsListElement.innerHTML = '';
+            if (clickRecords.length === 0) {
+                recordsListElement.innerHTML = '<div class="records-list-item">暂无记录</div>';
+                return;
+            }
+
+            clickRecords.forEach((record, index) => {
+                const recordItem = document.createElement('div');
+                recordItem.className = 'records-list-item';
+                recordItem.textContent = `记录 ${index + 1}：次数 ${record.count}，时间 ${record.localTime}`;
+                recordsListElement.appendChild(recordItem);
+            });
+        }
+
+        // 点击外部关闭设置面板
+        document.addEventListener('click', (e) => {
+            const panel = document.getElementById('settingsPanel');
+            if (!e.target.closest('.settings-panel') && 
+                !e.target.closest('.settings-icon')) {
+                panel.classList.remove('show');
+            }
+        });
+
+        // 初始化
+        initSettings();
+        setInterval(updateTimeDisplay, 1000);
+    </script>
+</body>
+</html>
+
+
+
+    <!-- Post footer. -->
+    <pre>Last updated: 2025/2/3
+    </pre>
+    
+	</div>
+
+      </main>
+
+    </div>
+
+    <!-- APlayer. -->
+
+    <!-- Footer js. -->
+    <script src="/javascripts/waiter.js"></script>
+  </body>
+</html>
